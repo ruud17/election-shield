@@ -50,6 +50,10 @@ const PageContent: FC = () => {
       <SubmitVote
         isTermsCheckboxConfirmed={isTermsCheckboxConfirmed}
         handleChange={handleTermsOfServiceOptionConfirmation}
+        dataToPost={{
+          voterDetails: voterDetails,
+          selectedCandidate: selectedCandidate,
+        }}
       />
     </Container>
   );
