@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Navbar, Row, Alert, Image } from "react-bootstrap";
+import { Navbar, Image } from "react-bootstrap";
 import VoteLogo from "../images/vote.svg";
 
 const Header: FC = () => {

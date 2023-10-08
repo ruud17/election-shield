@@ -1,17 +1,16 @@
 import { FC, useState, ChangeEvent } from "react";
 import { Row, Alert, Form } from "react-bootstrap";
+import { Candidates } from "../utils/enum";
 
 interface CandidatesSelectionProps {
-  // name: string;
+  selectedCandidate: string;
+  handleOptionChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CandidatesSelection: FC<CandidatesSelectionProps> = () => {
-  const [selectedOption, setSelectedOption] = useState<number>();
-
-  const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(parseInt(event.target.value));
-  };
-
+const CandidatesSelection: FC<CandidatesSelectionProps> = ({
+  selectedCandidate,
+  handleOptionChange,
+}) => {
   return (
     <Row className="candidate">
       <Alert variant="info">
@@ -20,17 +19,17 @@ const CandidatesSelection: FC<CandidatesSelectionProps> = () => {
       <Form.Group>
         <Form.Check
           type="radio"
-          label="Donald Trump"
-          value={1}
-          checked={selectedOption === 1}
+          label={Candidates.DonaldTrump}
+          value={Candidates.DonaldTrump}
+          checked={selectedCandidate === Candidates.DonaldTrump}
           onChange={handleOptionChange}
         />
 
         <Form.Check
           type="radio"
-          label="Joe Biden"
-          value={2}
-          checked={selectedOption === 2}
+          label={Candidates.JoeBiden}
+          value={Candidates.JoeBiden}
+          checked={selectedCandidate === Candidates.JoeBiden}
           onChange={handleOptionChange}
         />
       </Form.Group>
