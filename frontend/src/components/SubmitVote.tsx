@@ -25,7 +25,7 @@ const SubmitVote: FC<SubmitVoteProps> = ({
     } catch (error) {
       console.error("Error in fetchDataMemoized:", error);
     }
-  }, []);
+  }, [dataToPost]);
 
   return (
     <Row className="submit-vote">

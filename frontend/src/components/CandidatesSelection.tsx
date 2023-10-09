@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, ChangeEvent } from "react";
 import { Row, Alert, Form } from "react-bootstrap";
 import { Candidates } from "../utils/enum";
 

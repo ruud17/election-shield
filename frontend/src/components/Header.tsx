@@ -8,16 +8,6 @@ const Header: FC = () => {
       <Image src={VoteLogo} className="election-logo " />
       Election Shield
     </Navbar>
-    // <Container fluid className="header">
-    //   <Row>
-    //     <Alert variant="light" className="header">
-    //       <Alert.Heading>
-    //         <Image src={VoteLogo} className="election-logo " />
-    //         Election Shield
-    //       </Alert.Heading>
-    //     </Alert>
-    //   </Row>
-    // </Container>
   );
 };
 

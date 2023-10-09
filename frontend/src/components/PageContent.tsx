@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import VoterDetailsForm from "./VoterDetailsForm";
 import CandidatesSelection from "./CandidatesSelection";
 import SubmitVote from "./SubmitVote";
+import VoteConfirmationMsg from "./VoteConfirmationMsg";
 import { VoterDetails } from "../utils/interfaces";
 import { initialVoterDetailsData } from "../utils/defaultStates";
 import { Candidates } from "../utils/enum";
@@ -17,6 +18,9 @@ const PageContent: FC = () => {
   );
 
   const [isTermsCheckboxConfirmed, setIsTermsCheckboxConfirmed] =
+    useState<boolean>(false);
+
+  const [displaySuccessVotingMsg, setDisplaySuccessVotingMsg] =
     useState<boolean>(false);
 
   const handleVoterDetailChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,22 +43,28 @@ const PageContent: FC = () => {
 
   return (
     <Container className="page-content">
-      <VoterDetailsForm
-        voterDetails={voterDetails}
-        handleInputChange={handleVoterDetailChange}
-      />
-      <CandidatesSelection
-        selectedCandidate={selectedCandidate}
-        handleOptionChange={handleCandidateSelectionChange}
-      />
-      <SubmitVote
-        isTermsCheckboxConfirmed={isTermsCheckboxConfirmed}
-        handleChange={handleTermsOfServiceOptionConfirmation}
-        dataToPost={{
-          voterDetails: voterDetails,
-          selectedCandidate: selectedCandidate,
-        }}
-      />
+      {displaySuccessVotingMsg ? (
+        <>
+          <VoterDetailsForm
+            voterDetails={voterDetails}
+            handleInputChange={handleVoterDetailChange}
+          />
+          <CandidatesSelection
+            selectedCandidate={selectedCandidate}
+            handleOptionChange={handleCandidateSelectionChange}
+          />
+          <SubmitVote
+            isTermsCheckboxConfirmed={isTermsCheckboxConfirmed}
+            handleChange={handleTermsOfServiceOptionConfirmation}
+            dataToPost={{
+              voterDetails: voterDetails,
+              selectedCandidate: selectedCandidate,
+            }}
+          />
+        </>
+      ) : (
+        <VoteConfirmationMsg />
+      )}
     </Container>
   );
 };

@@ -75,6 +75,24 @@ body {
   }
 }
 
+.success-vote{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20%;
+  
+  img {
+    height: 120px;
+    width: 120px;
+  }
+
+  & > div:nth-child(2) {
+    width: 100%;
+    margin-top: 5%;
+  }
+}
+
 
 
   

@@ -1,7 +1,7 @@
 import { CreateVoteRequest } from "../dto/Vote";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = process.env.REACT_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const postVote = async (dataToPost: CreateVoteRequest): Promise<any> => {
     if (!API_KEY) {
@@ -11,9 +11,10 @@ export const postVote = async (dataToPost: CreateVoteRequest): Promise<any> => {
   
     try {
       const response = await fetch(`${API_URL}`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
-          'X-API-Key': `${API_KEY}`
+          'X-API-Key': `${API_KEY}`,
+          'Content-Type':'application/json'
         },
         body: JSON.stringify(dataToPost), // Convert data to JSON string
       });
