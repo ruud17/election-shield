@@ -1,0 +1,9 @@
+@mixin flex-base {
+    display: flex;
+    flex-direction: column;
+  }
+
+@mixin custom-font {
+    font-size: 12px;
+    font-weight: 700; 
+}

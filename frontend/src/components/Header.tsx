@@ -4,7 +4,7 @@ import VoteLogo from "../images/vote.svg";
 
 const Header: FC = () => {
   return (
-    <Navbar fixed="top" bg="light" data-bs-theme="light" className="header">
+    <Navbar fixed="top" bg="dark" data-bs-theme="light" className="header">
       <Image src={VoteLogo} className="election-logo " />
       Election Shield
     </Navbar>

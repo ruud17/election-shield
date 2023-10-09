@@ -75,7 +75,7 @@ const SubmitVote: FC<SubmitVoteProps> = ({
           onClick={saveVote}
           disabled={!isTermsCheckboxConfirmed}
         >
-          Submit
+          Submit Vote
         </Button>
       </Col>
 

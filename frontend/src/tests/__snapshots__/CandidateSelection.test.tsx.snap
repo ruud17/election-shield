@@ -8,44 +8,86 @@ exports[`renders correctly 1`] = `
     className="fade alert alert-info show"
     role="alert"
   >
-    Select the presidential candidate you'd like to vote for.
+    Please select your preferred presidential candidate
   </div>
-  <div>
-    <div
-      className="form-check"
-    >
-      <input
-        checked={false}
-        className="form-check-input"
-        disabled={false}
-        onChange={[Function]}
-        type="radio"
-        value="Donald Trump"
-      />
-      <label
-        className="form-check-label"
-        title=""
+  <div
+    className="col"
+  >
+    <div>
+      <div
+        className="bg-light text-black card"
       >
-        Donald Trump
-      </label>
+        <img
+          className="card-img-top"
+          src="Donald.jpeg"
+        />
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            <div
+              className="form-check"
+            >
+              <input
+                checked={false}
+                className="form-check-input"
+                disabled={false}
+                onChange={[Function]}
+                type="radio"
+                value="Donald Trump"
+              />
+              <label
+                className="form-check-label"
+                title=""
+              >
+                Donald Trump
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div
-      className="form-check"
-    >
-      <input
-        checked={false}
-        className="form-check-input"
-        disabled={false}
-        onChange={[Function]}
-        type="radio"
-        value="Joe Biden"
-      />
-      <label
-        className="form-check-label"
-        title=""
+  </div>
+  <div
+    className="col"
+  >
+    <div>
+      <div
+        className="bg-light text-black card"
       >
-        Joe Biden
-      </label>
+        <img
+          className="card-img-top"
+          src="Joe.jpeg"
+        />
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            <div
+              className="form-check"
+            >
+              <input
+                checked={false}
+                className="form-check-input"
+                disabled={false}
+                onChange={[Function]}
+                type="radio"
+                value="Joe Biden"
+              />
+              <label
+                className="form-check-label"
+                title=""
+              >
+                Joe Biden
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className="wrapper"
 >
   <nav
-    className="header navbar navbar-expand navbar-light bg-light fixed-top"
+    className="header navbar navbar-expand navbar-light bg-dark fixed-top"
     data-bs-theme="light"
   >
     <img
@@ -73,72 +73,59 @@ exports[`renders correctly 1`] = `
             </label>
           </div>
         </div>
+      </div>
+      <div
+        className="row"
+      >
         <div
-          className="row"
+          className="col"
         >
           <div
-            className="col"
+            className="mb-3 form-floating"
           >
+            <input
+              className="form-control form-control-sm"
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value=""
+            />
             <div
-              className="mb-3 form-floating"
+              className="invalid-feedback"
+            />
+            <label
+              htmlFor="email"
             >
-              <input
-                className="form-control form-control-sm"
-                id="email"
-                name="email"
-                onChange={[Function]}
-                placeholder="Email"
-                type="email"
-                value=""
-              />
-              <div
-                className="invalid-feedback"
-              />
-              <label
-                htmlFor="email"
-              >
-                Email
-              </label>
-            </div>
+              Email
+            </label>
           </div>
-          <div
-            className="col"
-          />
         </div>
         <div
-          className="row"
+          className="col"
         >
           <div
-            className="col"
+            className="mb-3 form-floating"
           >
+            <input
+              aria-describedby="idHelpBlock"
+              className="form-control form-control-sm"
+              id="identity_id"
+              name="identity_id"
+              onChange={[Function]}
+              placeholder="Identity Id"
+              type="string"
+              value=""
+            />
             <div
-              className="mb-3 form-floating"
+              className="invalid-feedback"
+            />
+            <label
+              htmlFor="identity_id"
             >
-              <input
-                aria-describedby="idHelpBlock"
-                className="form-control form-control-sm"
-                id="identity_id"
-                name="identity_id"
-                onChange={[Function]}
-                placeholder="Identity Id"
-                type="string"
-                value=""
-              />
-              <small
-                className="form-text text-muted"
-                id="idHelpBlock"
-              >
-                Please enter your identity id from your ID card
-              </small>
-              <div
-                className="invalid-feedback"
-              />
-              <label
-                htmlFor="identity_id"
-              >
-                Identity Id
-              </label>
-            </div>
+              Identity Id
+            </label>
           </div>
         </div>
       </div>
@@ -150,44 +137,86 @@ exports[`renders correctly 1`] = `
         className="fade alert alert-info show"
         role="alert"
       >
-        Select the presidential candidate you'd like to vote for.
+        Please select your preferred presidential candidate
       </div>
-      <div>
-        <div
-          className="form-check"
-        >
-          <input
-            checked={true}
-            className="form-check-input"
-            disabled={false}
-            onChange={[Function]}
-            type="radio"
-            value="Donald Trump"
-          />
-          <label
-            className="form-check-label"
-            title=""
+      <div
+        className="col"
+      >
+        <div>
+          <div
+            className="bg-light text-black card"
           >
-            Donald Trump
-          </label>
+            <img
+              className="card-img-top"
+              src="Donald.jpeg"
+            />
+            <div
+              className="card-body"
+            >
+              <div
+                className="card-title h5"
+              >
+                <div
+                  className="form-check"
+                >
+                  <input
+                    checked={true}
+                    className="form-check-input"
+                    disabled={false}
+                    onChange={[Function]}
+                    type="radio"
+                    value="Donald Trump"
+                  />
+                  <label
+                    className="form-check-label"
+                    title=""
+                  >
+                    Donald Trump
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          className="form-check"
-        >
-          <input
-            checked={false}
-            className="form-check-input"
-            disabled={false}
-            onChange={[Function]}
-            type="radio"
-            value="Joe Biden"
-          />
-          <label
-            className="form-check-label"
-            title=""
+      </div>
+      <div
+        className="col"
+      >
+        <div>
+          <div
+            className="bg-light text-black card"
           >
-            Joe Biden
-          </label>
+            <img
+              className="card-img-top"
+              src="Joe.jpeg"
+            />
+            <div
+              className="card-body"
+            >
+              <div
+                className="card-title h5"
+              >
+                <div
+                  className="form-check"
+                >
+                  <input
+                    checked={false}
+                    className="form-check-input"
+                    disabled={false}
+                    onChange={[Function]}
+                    type="radio"
+                    value="Joe Biden"
+                  />
+                  <label
+                    className="form-check-label"
+                    title=""
+                  >
+                    Joe Biden
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -222,7 +251,7 @@ exports[`renders correctly 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Submit
+          Submit Vote
         </button>
       </div>
       <div

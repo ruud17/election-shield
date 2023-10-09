@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Submit
+      Submit Vote
     </button>
   </div>
   <div

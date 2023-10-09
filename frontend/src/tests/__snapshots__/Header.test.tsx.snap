@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <nav
-  className="header navbar navbar-expand navbar-light bg-light fixed-top"
+  className="header navbar navbar-expand navbar-light bg-dark fixed-top"
   data-bs-theme="light"
 >
   <img
