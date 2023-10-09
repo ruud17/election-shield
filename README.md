@@ -4,11 +4,11 @@
 
 ---
 
-# Prerequesites
+## Prerequesites
 
 - Install Node.js - https://nodejs.org/en/download
 
-# How to run locally
+## How to run locally
 
 Create `.env` file and define two variables:
 
