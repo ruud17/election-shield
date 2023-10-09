@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="success-vote"
+>
+  <div
+    className="row"
+  >
+    <img
+      className=""
+      src="success_vote.svg"
+    />
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="fade alert alert-success show"
+      role="alert"
+    >
+      <div
+        className="alert-heading h4"
+      >
+        You have successfully voted
+      </div>
+      <hr />
+      <p
+        className="mb-0"
+      >
+        Thank you!
+      </p>
+    </div>
+  </div>
+</div>
+`;

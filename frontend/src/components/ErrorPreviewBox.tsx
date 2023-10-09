@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Row, Alert } from "react-bootstrap";
 import { ViewError } from "../utils/error";
 
-interface ErrorPreviewBoxProps {
+export interface ErrorPreviewBoxProps {
   errors: unknown[];
 }
 

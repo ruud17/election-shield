@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="fade alert alert-danger show"
+    role="alert"
+  >
+    <p
+      className="mb-0"
+    >
+      [object Object] {"message":"API error","description":"Could not connect to external server"}
+    </p>
+  </div>
+</div>
+`;

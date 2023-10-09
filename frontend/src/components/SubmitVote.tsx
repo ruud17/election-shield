@@ -5,7 +5,7 @@ import { CreateVoteRequest } from "../dto/Vote";
 import { FormValidator } from "../utils/formValidator";
 import ErrorPreviewBox from "./ErrorPreviewBox";
 
-interface SubmitVoteProps {
+export interface SubmitVoteProps {
   isTermsCheckboxConfirmed: boolean;
   handleChange: () => void;
   dataToPost: CreateVoteRequest;
@@ -44,7 +44,6 @@ const SubmitVote: FC<SubmitVoteProps> = ({
       await postVote(dataToPost);
       setDisplaySuccessVotingMsg(true);
     } catch (error: unknown) {
-      console.log("UHVATIO GA ", JSON.stringify(error), error);
       setApiErrors([...apiErrors, error]);
     }
   }, [

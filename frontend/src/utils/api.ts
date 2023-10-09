@@ -6,7 +6,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVoteResponse> => {
     if (!API_KEY) {
-      console.log("MISSING KEY")
       throw new CustomError(MISSING_API_KEY_ERROR)
     }
   
@@ -21,8 +20,6 @@ export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVot
       });
   
         if (!response.ok) {
-          console.log("NIJE OK", response)
-
           const errorMessage = await response.text();
           throw new CustomError(`${HTTP_RESPONSE_ERROR} = ${response.status}`, JSON.parse(errorMessage));
         }
@@ -31,7 +28,6 @@ export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVot
       return data;
     } 
     catch (error) {
-      console.log("CATCH BLOCK____---", error)
       throw(error);
     }
   }

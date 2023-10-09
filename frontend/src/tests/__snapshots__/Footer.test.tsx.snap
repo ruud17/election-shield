@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="footer navbar navbar-expand navbar-dark bg-dark fixed-bottom"
+>
+  <span
+    className="navbar-text"
+  >
+    © 
+    2023
+     Mehmed Jusic
+  </span>
+</nav>
+`;

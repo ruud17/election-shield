@@ -2,7 +2,7 @@ import { FC, ChangeEvent } from "react";
 import { Row, Col, Form, FloatingLabel } from "react-bootstrap";
 import { VoterDetails } from "../utils/interfaces";
 
-interface VoterDetailsFormProps {
+export interface VoterDetailsFormProps {
   voterDetails: VoterDetails;
   handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   formErrors: any;

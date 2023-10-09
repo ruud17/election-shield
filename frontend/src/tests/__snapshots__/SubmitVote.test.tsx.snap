@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="submit-vote row"
+>
+  <div
+    className="col"
+  >
+    <div
+      className="form-check"
+    >
+      <input
+        checked={false}
+        className="form-check-input"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="form-check-label"
+      >
+        Accept Terms of Service and Data Collection Consent
+      </label>
+    </div>
+  </div>
+  <div
+    className="d-flex justify-content-end col"
+  >
+    <button
+      className="btn btn-primary btn-sm"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+  <div
+    className="col"
+  >
+    <div
+      className="row"
+    />
+  </div>
+</div>
+`;

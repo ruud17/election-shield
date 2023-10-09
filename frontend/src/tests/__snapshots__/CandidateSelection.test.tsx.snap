@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="candidate row"
+>
+  <div
+    className="fade alert alert-info show"
+    role="alert"
+  >
+    Select the presidential candidate you'd like to vote for.
+  </div>
+  <div>
+    <div
+      className="form-check"
+    >
+      <input
+        checked={false}
+        className="form-check-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="Donald Trump"
+      />
+      <label
+        className="form-check-label"
+        title=""
+      >
+        Donald Trump
+      </label>
+    </div>
+    <div
+      className="form-check"
+    >
+      <input
+        checked={false}
+        className="form-check-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="Joe Biden"
+      />
+      <label
+        className="form-check-label"
+        title=""
+      >
+        Joe Biden
+      </label>
+    </div>
+  </div>
+</div>
+`;
