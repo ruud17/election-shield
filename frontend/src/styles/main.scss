@@ -53,15 +53,17 @@ body {
 }
 
 .voter-details-form{
-  label {
-    font-size: 12px;
-    font-weight: 700;
-  }
+  // input{
+  //   height: 30px;
+  // }
+  // label {
+  //   font-size: 10px;
+  //   font-weight: 100;
+  // }
 
-  small{
-    font-size: 10px;
-
-  }
+  // small{
+  //   font-size: 10px;
+  // }
 }
 
 .submit-vote {
@@ -91,6 +93,12 @@ body {
     width: 100%;
     margin-top: 5%;
   }
+}
+
+.custom-input{
+  height: 10px; /* Adjust the height as needed */
+  padding: 5px; /* Adjust the padding as needed */
+  font-size: 14px; /* Adjust the font size as needed */
 }
 
 

@@ -7,24 +7,19 @@ interface SubmitVoteProps {
   isTermsCheckboxConfirmed: boolean;
   handleChange: () => void;
   dataToPost: CreateVoteRequest;
+  setDisplaySuccessVotingMsg: (status: boolean) => void;
 }
 
 const SubmitVote: FC<SubmitVoteProps> = ({
   isTermsCheckboxConfirmed,
   handleChange,
   dataToPost,
+  setDisplaySuccessVotingMsg,
 }) => {
   const saveVote = useCallback(async () => {
-    try {
-      const result = await postVote(dataToPost);
-      // TO DO:
-      // 1 show alert
-      // 2. show thank you page
-      // reset form
-      console.log("SUCCESS");
-    } catch (error) {
-      console.error("Error in fetchDataMemoized:", error);
-    }
+    const result = await postVote(dataToPost);
+    setDisplaySuccessVotingMsg(true);
+    console.log("SUCCESS", result);
   }, [dataToPost]);
 
   return (

@@ -43,7 +43,7 @@ const PageContent: FC = () => {
 
   return (
     <Container className="page-content">
-      {displaySuccessVotingMsg ? (
+      {!displaySuccessVotingMsg ? (
         <>
           <VoterDetailsForm
             voterDetails={voterDetails}
@@ -60,6 +60,7 @@ const PageContent: FC = () => {
               voterDetails: voterDetails,
               selectedCandidate: selectedCandidate,
             }}
+            setDisplaySuccessVotingMsg={setDisplaySuccessVotingMsg}
           />
         </>
       ) : (

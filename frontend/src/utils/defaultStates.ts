@@ -4,5 +4,5 @@ export const initialVoterDetailsData : VoterDetails = {
     firstName: '',
     lastName: '',
     email: '',
-    identity_id: null
+    identity_id: ''
   };

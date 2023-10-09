@@ -1,5 +1,5 @@
 import { FC, ChangeEvent } from "react";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, FloatingLabel } from "react-bootstrap";
 import { VoterDetails } from "../utils/interfaces";
 
 interface VoterDetailsFormProps {
@@ -15,9 +15,13 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
     <Form className="voter-details-form">
       <Row>
         <Col>
-          <Form.Group className="mb-3">
-            <Form.Label>First Name</Form.Label>
+          <FloatingLabel
+            controlId="firstName"
+            label="First Name"
+            className="mb-3"
+          >
             <Form.Control
+              className="custom-input" // Add a custom CSS class
               type="text"
               placeholder="First Name"
               size="sm"
@@ -25,11 +29,15 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
               value={voterDetails.firstName}
               onChange={handleInputChange}
             />
-          </Form.Group>
+          </FloatingLabel>
         </Col>
+
         <Col>
-          <Form.Group className="mb-3">
-            <Form.Label>Last Name</Form.Label>
+          <FloatingLabel
+            controlId="lastName"
+            label="Last Name"
+            className="mb-3"
+          >
             <Form.Control
               type="text"
               placeholder="Last Name"
@@ -38,35 +46,45 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
               value={voterDetails.lastName}
               onChange={handleInputChange}
             />
-          </Form.Group>
+          </FloatingLabel>
         </Col>
-
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Email"
-            size="sm"
-            name="email"
-            value={voterDetails.email}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-          <Form.Label>Identity Id</Form.Label>
-          <Form.Control
-            type="number"
-            aria-describedby="idHelpBlock"
-            size="sm"
-            name="identity_id"
-            value={voterDetails.identity_id || ""}
-            onChange={handleInputChange}
-          />
-          <Form.Text id="idHelpBlock" muted>
-            Please enter your identity id from your ID card
-          </Form.Text>
-        </Form.Group>
+        <Row>
+          <Col>
+            <FloatingLabel controlId="email" label="Email" className="mb-3">
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                size="sm"
+                name="email"
+                value={voterDetails.email}
+                onChange={handleInputChange}
+              />
+            </FloatingLabel>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row>
+          <Col>
+            <FloatingLabel
+              controlId="identity_id"
+              label="Identity Id"
+              className="mb-3"
+            >
+              <Form.Control
+                type="string"
+                placeholder="Identity Id"
+                aria-describedby="idHelpBlock"
+                size="sm"
+                name="identity_id"
+                value={voterDetails.identity_id}
+                onChange={handleInputChange}
+              />
+              <Form.Text id="idHelpBlock" muted>
+                Please enter your identity id from your ID card
+              </Form.Text>
+            </FloatingLabel>
+          </Col>
+        </Row>
       </Row>
     </Form>
   );

@@ -1,9 +1,9 @@
-import { CreateVoteRequest } from "../dto/Vote";
+import { CreateVoteRequest, CreateVoteResponse } from "../dto/Vote";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = process.env.REACT_APP_API_URL;
 
-export const postVote = async (dataToPost: CreateVoteRequest): Promise<any> => {
+export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVoteResponse> => {
     if (!API_KEY) {
       console.error('API KEY is not defined');
       throw new Error('API KEY is not defined')
