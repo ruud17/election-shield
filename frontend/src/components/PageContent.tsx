@@ -23,6 +23,8 @@ const PageContent: FC = () => {
   const [displaySuccessVotingMsg, setDisplaySuccessVotingMsg] =
     useState<boolean>(false);
 
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
   const handleVoterDetailChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setVoterDetails({
@@ -48,6 +50,7 @@ const PageContent: FC = () => {
           <VoterDetailsForm
             voterDetails={voterDetails}
             handleInputChange={handleVoterDetailChange}
+            formErrors={formErrors}
           />
           <CandidatesSelection
             selectedCandidate={selectedCandidate}
@@ -61,6 +64,7 @@ const PageContent: FC = () => {
               selectedCandidate: selectedCandidate,
             }}
             setDisplaySuccessVotingMsg={setDisplaySuccessVotingMsg}
+            setFormErrors={setFormErrors}
           />
         </>
       ) : (

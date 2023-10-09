@@ -5,11 +5,13 @@ import { VoterDetails } from "../utils/interfaces";
 interface VoterDetailsFormProps {
   voterDetails: VoterDetails;
   handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  formErrors: any;
 }
 
 const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
   voterDetails,
   handleInputChange,
+  formErrors,
 }) => {
   return (
     <Form className="voter-details-form">
@@ -21,7 +23,6 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
             className="mb-3"
           >
             <Form.Control
-              className="custom-input" // Add a custom CSS class
               type="text"
               placeholder="First Name"
               size="sm"
@@ -29,6 +30,9 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
               value={voterDetails.firstName}
               onChange={handleInputChange}
             />
+            <Form.Control.Feedback type="invalid">
+              {formErrors.firstName}
+            </Form.Control.Feedback>
           </FloatingLabel>
         </Col>
 
@@ -46,6 +50,9 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
               value={voterDetails.lastName}
               onChange={handleInputChange}
             />
+            <Form.Control.Feedback type="invalid">
+              {formErrors.lastName}
+            </Form.Control.Feedback>
           </FloatingLabel>
         </Col>
         <Row>
@@ -59,6 +66,9 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
                 value={voterDetails.email}
                 onChange={handleInputChange}
               />
+              <Form.Control.Feedback type="invalid">
+                {formErrors.email}
+              </Form.Control.Feedback>
             </FloatingLabel>
           </Col>
           <Col></Col>
@@ -82,6 +92,9 @@ const VoterDetailsForm: FC<VoterDetailsFormProps> = ({
               <Form.Text id="idHelpBlock" muted>
                 Please enter your identity id from your ID card
               </Form.Text>
+              <Form.Control.Feedback type="invalid">
+                {formErrors.identity_id}
+              </Form.Control.Feedback>
             </FloatingLabel>
           </Col>
         </Row>

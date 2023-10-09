@@ -2,12 +2,14 @@ import { FC, useCallback } from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { postVote } from "../utils/api";
 import { CreateVoteRequest } from "../dto/Vote";
+import { FormValidator } from "../utils/formValidator";
 
 interface SubmitVoteProps {
   isTermsCheckboxConfirmed: boolean;
   handleChange: () => void;
   dataToPost: CreateVoteRequest;
   setDisplaySuccessVotingMsg: (status: boolean) => void;
+  setFormErrors: (error: Record<string, string>) => void;
 }
 
 const SubmitVote: FC<SubmitVoteProps> = ({
@@ -15,12 +17,26 @@ const SubmitVote: FC<SubmitVoteProps> = ({
   handleChange,
   dataToPost,
   setDisplaySuccessVotingMsg,
+  setFormErrors,
 }) => {
   const saveVote = useCallback(async () => {
-    const result = await postVote(dataToPost);
-    setDisplaySuccessVotingMsg(true);
-    console.log("SUCCESS", result);
-  }, [dataToPost]);
+    try {
+      await FormValidator.schema.validate(dataToPost.voterDetails, {
+        abortEarly: false,
+      });
+
+      await postVote(dataToPost);
+      setDisplaySuccessVotingMsg(true);
+    } catch (validationErrors: any) {
+      const newErrors: Record<string, string> = {};
+
+      validationErrors.inner.forEach((error: any) => {
+        newErrors[error.path] = error.message;
+      });
+
+      setFormErrors(newErrors);
+    }
+  }, [dataToPost, setDisplaySuccessVotingMsg, setFormErrors]);
 
   return (
     <Row className="submit-vote">
@@ -37,7 +53,12 @@ const SubmitVote: FC<SubmitVoteProps> = ({
         </Form.Check>
       </Col>
       <Col className="d-flex justify-content-end">
-        <Button variant="primary" size="sm" onClick={saveVote}>
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={saveVote}
+          disabled={!isTermsCheckboxConfirmed}
+        >
           Submit
         </Button>
       </Col>

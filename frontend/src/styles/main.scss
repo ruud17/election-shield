@@ -53,6 +53,9 @@ body {
 }
 
 .voter-details-form{
+  .invalid-feedback{
+    display: block;
+  }
   // input{
   //   height: 30px;
   // }
@@ -94,13 +97,6 @@ body {
     margin-top: 5%;
   }
 }
-
-.custom-input{
-  height: 10px; /* Adjust the height as needed */
-  padding: 5px; /* Adjust the padding as needed */
-  font-size: 14px; /* Adjust the font size as needed */
-}
-
 
 
   
