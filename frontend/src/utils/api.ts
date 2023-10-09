@@ -1,12 +1,13 @@
 import { CreateVoteRequest, CreateVoteResponse } from "../dto/Vote";
+import { CustomError, HTTP_RESPONSE_ERROR, MISSING_API_KEY_ERROR } from "./error";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVoteResponse> => {
     if (!API_KEY) {
-      console.error('API KEY is not defined');
-      throw new Error('API KEY is not defined')
+      console.log("MISSING KEY")
+      throw new CustomError(MISSING_API_KEY_ERROR)
     }
   
     try {
@@ -16,17 +17,21 @@ export const postVote = async (dataToPost: CreateVoteRequest): Promise<CreateVot
           'X-API-Key': `${API_KEY}`,
           'Content-Type':'application/json'
         },
-        body: JSON.stringify(dataToPost), // Convert data to JSON string
+        body: JSON.stringify(dataToPost),
       });
   
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
+        if (!response.ok) {
+          console.log("NIJE OK", response)
+
+          const errorMessage = await response.text();
+          throw new CustomError(`${HTTP_RESPONSE_ERROR} = ${response.status}`, JSON.parse(errorMessage));
+        }
   
       const data = await response.json();
       return data;
-    } catch (error) {
-      console.error('Error while saving record into the DB', error);
-      throw error;
+    } 
+    catch (error) {
+      console.log("CATCH BLOCK____---", error)
+      throw(error);
     }
   }

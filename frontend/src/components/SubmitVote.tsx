@@ -1,8 +1,9 @@
-import { FC, useCallback } from "react";
+import { FC, useCallback, useState } from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { postVote } from "../utils/api";
 import { CreateVoteRequest } from "../dto/Vote";
 import { FormValidator } from "../utils/formValidator";
+import ErrorPreviewBox from "./ErrorPreviewBox";
 
 interface SubmitVoteProps {
   isTermsCheckboxConfirmed: boolean;
@@ -19,14 +20,15 @@ const SubmitVote: FC<SubmitVoteProps> = ({
   setDisplaySuccessVotingMsg,
   setFormErrors,
 }) => {
+  const [apiErrors, setApiErrors] = useState<unknown[]>([]);
+
   const saveVote = useCallback(async () => {
     try {
+      setApiErrors([]);
+
       await FormValidator.schema.validate(dataToPost.voterDetails, {
         abortEarly: false,
       });
-
-      await postVote(dataToPost);
-      setDisplaySuccessVotingMsg(true);
     } catch (validationErrors: any) {
       const newErrors: Record<string, string> = {};
 
@@ -35,8 +37,23 @@ const SubmitVote: FC<SubmitVoteProps> = ({
       });
 
       setFormErrors(newErrors);
+      return;
     }
-  }, [dataToPost, setDisplaySuccessVotingMsg, setFormErrors]);
+
+    try {
+      await postVote(dataToPost);
+      setDisplaySuccessVotingMsg(true);
+    } catch (error: unknown) {
+      console.log("UHVATIO GA ", JSON.stringify(error), error);
+      setApiErrors([...apiErrors, error]);
+    }
+  }, [
+    dataToPost,
+    setDisplaySuccessVotingMsg,
+    setFormErrors,
+    apiErrors,
+    setApiErrors,
+  ]);
 
   return (
     <Row className="submit-vote">
@@ -62,6 +79,12 @@ const SubmitVote: FC<SubmitVoteProps> = ({
           Submit
         </Button>
       </Col>
+
+      {apiErrors && (
+        <Col>
+          <ErrorPreviewBox errors={apiErrors} />
+        </Col>
+      )}
     </Row>
   );
 };
